@@ -1,0 +1,5 @@
+1. List (Ol, Ul)
+2. table (tr, th, td )
+3. Input (text, email, pass, number, radio, checkbox, date,...)
+4. select (option)
+5. br, hr, b, sup, sub, marquee
