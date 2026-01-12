@@ -1,0 +1,14 @@
+ h1 {
+     color: blue;
+     text-align: center;
+ }
+
+ #id01 {
+     color: red;
+     text-align: left;
+ }
+
+ .cls01 {
+     color: green;
+     text-align: right;
+ }
