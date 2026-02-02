@@ -1,0 +1,15 @@
+1. External JavaScript
+2. getElementById
+3. getElementsByTagName
+4. IF, Else IF, Else
+5. Loop
+6. addEventlitsner
+
+
+Task:
+-----
+
+1. Image Slider
+2. Simple Calculater
+3. Form Validation
+4. GST Calculater
