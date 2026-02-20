@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Register Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'external/style.css' %}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="image-section">
+            <img src="{% static 'external/img/110952913.webp' %}" alt="Register Image">
+        </div>
+
+        <div class="form-section">
+            <h2>Create Account</h2>
+
+            <form id="registerForm">
+
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                    <small class="error"></small>
+                </div>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                    <small class="error"></small>
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="Enter password">
+                    <small class="error"></small>
+                </div>
+
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm password">
+                    <small class="error"></small>
+                </div>
+
+                <button type="submit">Register</button>
+
+            </form>
+        </div>
+
+    </div>
+
+    <script src="{% static 'external/script.js' %}"></script>
+</body>
+
+</html>
