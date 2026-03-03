@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {{ user }}
+
+    <hr>
+
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.email }}</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    {% if user.age >= 18 %}
+    <p>{{ user.name }} is an adult.</p>
+    {% else %}
+    <p>{{ user.name }} is a minor.</p>
+    {% endif %}
+
+    <hr>
+
+    {% for key, value in user.items %}
+    <p>{{ key }} - {{ value }}</p>
+    {% endfor %}
+
+    <hr>
+
+    <h1>Welcome to App01</h1>
+</body>
+
+</html>
