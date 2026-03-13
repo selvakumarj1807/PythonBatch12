@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 
+from app.forms import EmployeeForm
 from app.models import Employee
 
 # Create your views here.
@@ -21,27 +22,28 @@ def edit(request, id):
 def update(request, id):
     employee = Employee.objects.get(id=id)  
     
-    if request.method == "POST":
-        employee.name = request.POST.get('name')
-        employee.email = request.POST.get('email')
-        employee.contact = request.POST.get('contact')
-        employee.save()
-        
-        return redirect('/')
+    form = EmployeeForm(request.POST, instance = employee)  
+    
+    if form.is_valid():  
+        form.save()  
+        return redirect("/") 
     
     return render(request, 'edit.html', {'employee': employee})
 
 
 def addnew(request):
+    form = EmployeeForm()
     
-    if request.method == "POST":
-        employee = Employee()
+    if request.method == 'POST':
+        form = EmployeeForm(request.POST)  
         
-        employee.name = request.POST.get('name')
-        employee.email = request.POST.get('email')
-        employee.contact = request.POST.get('contact')
-        employee.save()
+        if form.is_valid():  
+            try:  
+                form.save()  
+                return redirect('/')  
+            except:  
+                pass
         
         return redirect('/')
-        
-    return render(request, 'addnew.html')
+    
+    return render(request, 'addnew.html', {'form': form})
