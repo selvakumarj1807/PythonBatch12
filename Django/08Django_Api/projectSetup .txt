@@ -1,0 +1,72 @@
+# Create and activate virtual environment
+python -m venv env
+source env/bin/activate  # (Windows: env\Scripts\activate)
+
+# Install Django and DRF
+pip install django djangorestframework
+
+# Start project and app
+django-admin startproject student_api .
+python manage.py startapp students
+
+
+
+INSTALLED_APPS = [
+    ...
+    'rest_framework',
+    'students',
+]
+
+
+Django REST Framework’s generic class-based views 
+-------------------------------------------------
+
+students/models.py
+
+from django.db import models
+
+# Create your models here.
+
+class Student(models.Model):
+    name = models.CharField(max_length=100, null=True, blank=True)
+    email = models.EmailField(unique=True)
+    course = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+Migrations & Migrate in your Terminal
+-------------------------------------
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+Crate Super user in your Terminal
+----------------------------------
+
+python manage.py createsuperuser
+
+Register your models in students/admin.py
+-----------------------------------------
+
+from django.contrib import admin
+
+from students.models import Student
+
+# Register your models here.
+
+admin.site.register(Student)
+
+Run the Server
+--------------
+
+python manage.py runserver
+
+
+To generate a requirements.txt file using pip freeze, use this command:
+
+pip freeze > requirements.txt
+
+To install later using the file:
+
+pip install -r requirements.txt

@@ -1,0 +1,130 @@
+**API Request Methods** and **HTTP Response Status Codes** 👇
+
+---
+
+# 🌐 API Request Methods (HTTP Methods)
+
+These define **what action you want to perform** on a resource.
+
+| Method     | Purpose             | Example              |
+| ---------- | ------------------- | -------------------- |
+| **GET**    | Fetch data          | Get all users        |
+| **POST**   | Create new data     | Create a user        |
+| **PUT**    | Update entire data  | Replace user details |
+| **PATCH**  | Update partial data | Update only email    |
+| **DELETE** | Remove data         | Delete a user        |
+
+---
+
+### 🔹 Example (User API)
+
+```http
+GET /users          → Get all users
+GET /users/1        → Get single user
+POST /users         → Create user
+PUT /users/1        → Update full user
+PATCH /users/1      → Update partial user
+DELETE /users/1     → Delete user
+```
+
+---
+
+# 📡 API Response Status Codes
+
+These tell you **what happened after the request**.
+
+---
+
+## ✅ 1xx – Informational
+
+* Rarely used in frontend/backend apps
+* Example: `100 Continue`
+
+---
+
+## ✅ 2xx – Success
+
+| Code               | Meaning                               |
+| ------------------ | ------------------------------------- |
+| **200 OK**         | Request successful (GET, PUT, PATCH)  |
+| **201 Created**    | Resource created (POST)               |
+| **202 Accepted**   | Request accepted, processing later    |
+| **204 No Content** | Success but no response body (DELETE) |
+
+---
+
+## ⚠️ 3xx – Redirection
+
+| Code                      | Meaning                    |
+| ------------------------- | -------------------------- |
+| **301 Moved Permanently** | URL changed permanently    |
+| **302 Found**             | Temporary redirect         |
+| **304 Not Modified**      | Cached version can be used |
+
+---
+
+## ❌ 4xx – Client Errors
+
+| Code                         | Meaning               |
+| ---------------------------- | --------------------- |
+| **400 Bad Request**          | Invalid input         |
+| **401 Unauthorized**         | Not logged in         |
+| **403 Forbidden**            | No permission         |
+| **404 Not Found**            | Resource not found    |
+| **405 Method Not Allowed**   | Wrong HTTP method     |
+| **409 Conflict**             | Duplicate or conflict |
+| **422 Unprocessable Entity** | Validation error      |
+
+---
+
+## 💥 5xx – Server Errors
+
+| Code                          | Meaning                   |
+| ----------------------------- | ------------------------- |
+| **500 Internal Server Error** | Server crash/bug          |
+| **502 Bad Gateway**           | Invalid upstream response |
+| **503 Service Unavailable**   | Server down/overloaded    |
+| **504 Gateway Timeout**       | Server took too long      |
+
+---
+
+# 🚀 Real Example (Login API)
+
+```http
+POST /login
+```
+
+### Possible Responses:
+
+```json
+200 OK
+{
+  "message": "Login successful"
+}
+```
+
+```json
+401 Unauthorized
+{
+  "message": "Invalid credentials"
+}
+```
+
+```json
+500 Internal Server Error
+{
+  "message": "Something went wrong"
+}
+```
+
+---
+
+# 🎯 Quick Memory Trick
+
+* **2xx → Success**
+* **3xx → Redirect**
+* **4xx → Client mistake**
+* **5xx → Server problem**
+
+---
+
